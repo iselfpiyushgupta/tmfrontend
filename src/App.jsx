@@ -12,7 +12,7 @@ function App() {
 
   const fetchTasks = async () => {
     try {
-      const response = await axios.get('/api/tasks');
+      const response = await axios.get('https://tmbackend.onrender.com/api/tasks');
       setTasks(response.data);
     } catch (error) {
       console.error('Error fetching tasks:', error);
