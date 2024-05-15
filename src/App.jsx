@@ -21,7 +21,7 @@ function App() {
 
   const addTask = async (newTask) => {
     try {
-      const response = await axios.post('/api/tasks', newTask);
+      const response = await axios.post('https://tmbackend.onrender.com/api/tasks', newTask);
       setTasks([...tasks, response.data]);
     } catch (error) {
       console.error('Error adding task:', error);
@@ -30,7 +30,7 @@ function App() {
 
   const updateTask = async (updatedTask) => {
     try {
-      const response = await axios.put(`/api/tasks/${updatedTask.id}`, updatedTask);
+      const response = await axios.put(`https://tmbackend.onrender.com/api/tasks/${updatedTask.id}`, updatedTask);
       const updatedTasks = tasks.map(task => (task.id === updatedTask.id ? response.data : task));
       setTasks(updatedTasks);
     } catch (error) {
@@ -40,7 +40,7 @@ function App() {
 
   const deleteTask = async (taskId) => {
     try {
-      await axios.delete(`/api/tasks/${taskId}`);
+      await axios.delete(`https://tmbackend.onrender.com/api/tasks/${taskId}`);
       const updatedTasks = tasks.filter(task => task.id !== taskId);
       setTasks(updatedTasks);
     } catch (error) {
